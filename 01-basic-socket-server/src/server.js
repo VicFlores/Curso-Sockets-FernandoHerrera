@@ -28,7 +28,10 @@ class Server {
     this.server = http.createServer(this.app);
 
     this.io = socketio(this.server, {
-      transports: ['websocket', 'polling', 'flashsocket'],
+      cors: {
+        origin: this.options,
+        credentials: true,
+      },
     });
   }
 
