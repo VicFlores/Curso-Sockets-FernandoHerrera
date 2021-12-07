@@ -20,7 +20,14 @@ class Server {
 
   middleware() {
     this.app.use(express.static(path.resolve(__dirname, '../public')));
-    this.app.use(cors());
+    this.app.use(
+      cors({
+        origin: [
+          'http://localhost:4000/',
+          'https://socket-serv-react.herokuapp.com/',
+        ],
+      })
+    );
   }
 
   configurarSockets() {
