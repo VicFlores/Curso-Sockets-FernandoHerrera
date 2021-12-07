@@ -28,7 +28,7 @@ class Server {
     this.server = http.createServer(this.app);
 
     this.io = socketio(this.server, {
-      /* configuraciones */
+      transports: ['websocket', 'polling', 'flashsocket'],
     });
   }
 
