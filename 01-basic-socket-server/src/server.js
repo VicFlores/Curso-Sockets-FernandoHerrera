@@ -30,14 +30,14 @@ class Server {
     this.io = socketio(this.server, {
       cors: {
         origin: this.options,
-        credentials: true,
+        method: ['GET', 'POST'],
       },
     });
   }
 
   middleware() {
     this.app.use(express.static(path.resolve(__dirname, '../public')));
-    this.app.use(cors(this.options));
+    /* this.app.use(cors(this.options)); */
   }
 
   configurarSockets() {
